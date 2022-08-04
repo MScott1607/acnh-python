@@ -1,6 +1,8 @@
 import json
 import requests
-
+#this will allow you to input which hemisphere you are in, the time and date (month only, days do not matter), 
+#whether you are searching for fish or bugs or sea life, and then which creature you want. It will return the availability and times.
+#This code is not finished
 def fish_search(fish_name):
     url_fish = 'https://acnhapi.com/v1/fish/{}'.format(fish_name)
     response_fish = requests.get(url_fish)
