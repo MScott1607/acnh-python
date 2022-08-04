@@ -1,6 +1,13 @@
 import requests
 import json
 
+
+
+
+#basic fish search - you can enter the fish name and it will return the fish's location and times available
+#ends with a function to make sure you've finished
+# PROBLEM - if the fish is available all day, the function 'finished()' will not run
+
 def fish_search(fish_name):
     url_fish = 'https://acnhapi.com/v1/fish/{}'.format(fish_name)
     response_fish = requests.get(url_fish)
