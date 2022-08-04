@@ -22,10 +22,11 @@ def run():
     #less messy if fish is available all day
     if fish['availability']['isAllDay'] == True:
         print('Time: All Day')
-    else:
+    elif fish['availability']['isAllDay'] == False:
         print('Times available:', fish['availability']['time-array'])
 
-#function with for loop to check if user wants to search again
+
+#function with loop to check if user wants to search again
         def finished():
             are_you_finished=input('Are you done? yes/no')
             if are_you_finished=='no':
