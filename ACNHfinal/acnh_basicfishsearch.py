@@ -5,8 +5,7 @@ import json
 
 
 #basic fish search - you can enter the fish name and it will return the fish's location and times available
-#ends with a function to make sure you've finished
-# PROBLEM - if the fish is available all day, the function 'finished()' will not run
+#ends with a function to make sure you've finished 
 
 def fish_search(fish_name):
     url_fish = 'https://acnhapi.com/v1/fish/{}'.format(fish_name)
@@ -14,6 +13,16 @@ def fish_search(fish_name):
     fish = response_fish.json()
     return fish
 
+#function with loop to check if user wants to search again
+def finished():
+    are_you_finished = input('Are you done? yes/no')
+    if are_you_finished == 'no':
+        run()
+    elif are_you_finished == 'yes':
+        print('thanks! Happy fishing!')
+    else:
+        print('That made no sense, try again')
+        finished()
 
 def run():
     fish_name = input('name')
@@ -24,17 +33,8 @@ def run():
         print('Time: All Day')
     elif fish['availability']['isAllDay'] == False:
         print('Times available:', fish['availability']['time-array'])
+    finished()
 
 
-#function with loop to check if user wants to search again
-        def finished():
-            are_you_finished=input('Are you done? yes/no')
-            if are_you_finished=='no':
-                run()
-            elif are_you_finished=='yes':
-                print('thanks! Happy fishing!')
-            else:
-                print('That made no sense, try again')
-                finished()
-        finished()
+
 run()
